@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.39.min.js"></script>
+<script src="img"></script>
+<script src="css"></script>
+<script src="GetScreen.html"></script>
+<script>
+    $(function(){
+        $("#givefooterContent").load("footers/givefooter.html");
+    });
+</script>
+<script src="https://github.com/dmcquay/node-apac.git"></script>
+<link rel="stylesheet"type="text/css"href="www/css/pictures.css">
+
+
+
+
+
+<head>
+<!--Give Screen-->
+    <meta charset="UTF-8">
+    <title>Give Page</title>
+
+</head>
+<body>
+<section id="giveDefault"class="giveDefault"data-role="page">
+    <header><h3><center> Give </center>
+    <a href="#addPageGive" style="color:green"align="right">Add</a>
+    </h3>
+    </header>
+    <p><a href="#giveSecond">To see second page</a></p>
+
+
+<article>
+    <p></p>
+    <h1><center>No books yet!</center></h1>
+    <h2 style="color:gray">Books that you are willing to give
+    will appear here</h2>
+    <h1 style="color:green"><center>Add book</center></h1>
+
+</article>
+</section>
+<section id="addPageGive">
+
+        <header data-role="header" style="green"><center>Add</center></header>
+        <p>Search for the book you are interested in:<input type="search"></p>
+        <input type="submit" value="submit"></input>
+</section>
+<section id="giveSecond">
+<ul id="matched" data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
+    <header><h3><center> Give </center></h3></header>
+    <li><a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Acquire Book
+        <h2>Eloquent Javascript:A Modern Introduction to Programming</h2>
+        <p> by: Marjin Haverbeke</p>
+        <p>ISBN-10: 1593275846</p>
+        <span class="ui-li-count">2</span>
+        </a>
+    </li>
+    <li>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Acquire Book
+        <h2>Murach's PHP and MySQL</h2>
+        <p> by: Joel Murach</p>
+        <p>ISBN-10: 1890774790</p>
+            <span class="ui-li-count">2</span>
+    </a>
+
+    </li>
+    <li>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Acquire Book
+        <h2>System Analysis & Design</h2>
+        <p>Alan Dennis</p>
+        <p>ISBN-10: 1118037421</p>
+            <span class="ui-li-count">2</span>
+        </a>
+
+    </li>
+</ul>
+    <!--give detail page !-->
+    <section id="giveDetail">
+        <h1 align="left" style="color: green"><center>Give</center></h1>
+    </section>
+<!--
+<div id="footerContent"></div>
+!-->
+    <footer>
+        			<div data-role="footer" data-position="fixed" style="overflow:hidden;">
+        				<div data-role="navbar" data-iconpos="top">
+        					<ul>
+        						<li><a href="MatchScreen.html"  data-icon="img/matches.svg">Matches</a></li>
+        						<li><a href="GetScreen.html" data-icon="img/get.svg">Get</a></li>
+        						<li><a href="GiveScreen.html"class="ui-btn-active" data-icon="img/give.svg">Give</a></li>
+        						<li><a href="SettingsScreen.html" data-icon="img/settings.svg">Settings</a></li>
+        					</ul>
+        				</div>
+        			</div>
+        		</footer>
+</section>
+</body>
+
+
+
+</html>

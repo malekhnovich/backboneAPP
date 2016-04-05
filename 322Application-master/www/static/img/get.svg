@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>shopping-cart.png</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Glyphish-WatchKit-38mm" sketch:type="MSArtboardGroup" transform="translate(-347.000000, -1141.000000)" fill="#000000">
+            <g id="shopping-cart.png" sketch:type="MSLayerGroup" transform="translate(347.000000, 1141.000000)">
+                <g id="Shopping-Cart.png" sketch:type="MSShapeGroup">
+                    <path d="M46,20 L46,8 C46,6.896 45.104,6 44,6 L10.516,6 L9.984,1.752 L9.974,1.753 C9.853,0.767 9.02,0 8,0 L2,0 C0.896,0 0,0.896 0,2 C0,3.104 0.896,4 2,4 L6.234,4 L10.015,34.248 L10.024,34.247 C10.147,35.233 10.98,36 12,36 L13,36 L41,36 L44,36 C45.104,36 46,35.104 46,34 C46,32.896 45.104,32 44,32 L13.766,32 L13.449,29.465 L44.472,21.944 L44.47,21.939 C45.347,21.727 46,20.941 46,20 L46,20 Z M42,18.427 L12.949,25.47 L11.016,10 L42,10 L42,18.427 L42,18.427 Z M36,41 C36,43.762 38.238,46 41,46 C43.762,46 46,43.762 46,41 C46,38.238 43.762,36 41,36 C38.238,36 36,38.238 36,41 L36,41 Z M8,41 C8,43.762 10.238,46 13,46 C15.762,46 18,43.762 18,41 C18,38.238 15.762,36 13,36 C10.238,36 8,38.238 8,41 L8,41 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

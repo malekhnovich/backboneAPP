@@ -1,0 +1,25 @@
+.ui-icon-myiconMatches:after {
+    background-image: url("../img/checkmark-24.png");
+    background-size: 20px 20px;
+
+}
+
+
+
+
+.ui-icon-myiconGet:after{
+    background-image:url("../img/shopping-cart-icon.png");
+    background-size:50px 50px;
+}
+
+.ui-icon-myiconGive:after{
+    background-image:url("../img/price_tag.png");
+    background-size:20px 20px;
+}
+
+
+.ui-icon-myiconSettings:after{
+    background-image:url("../img/settings_image.png");
+    background-size:20px 20px;
+}
+

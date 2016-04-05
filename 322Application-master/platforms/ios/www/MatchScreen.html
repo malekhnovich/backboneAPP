@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.2.39.min.js"></script>
+<script src="img"></script>
+<script src="css"></script>
+
+<script src="https://github.com/dmcquay/node-apac.git"></script>
+<link rel="stylesheet"type="text/css"href="www/css/pictures.css">
+
+<head>
+
+<header><h3><center>Get </center></h3></header>
+</head>
+<p>
+<script src="javascript">
+    var util = require('util'),
+            OperationHelper = require('https://github.com/dmcquay/node-apac.git').OperationHelper;
+
+    var opHelper = new OperationHelper({
+        awsId: '[AKIAJYFONCHRZDHPYF2A]',
+        awsSecret: '[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]',
+        assocId: '[322appcom-20]'
+    });
+
+    opHelper.execute('ItemSearch', {
+        'SearchIndex': 'Books',
+        'Keywords': 'harry potter',
+        'ResponseGroup': 'ItemAttributes,Offers'
+    }, function(err, results) {
+        console.log(results);
+
+    });
+
+<
+
+
+
+    // output:
+    // { ItemSearchResponse:
+    //    { '$': { xmlns: 'http://webservices.amazon.com/AWSECommerceService/2011-08-01' },
+    //      OperationRequest: [ [Object] ],
+    //      Items: [ [Object] ] } }
+
+
+
+
+</script>
+    </p>
+    <ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-inset="true">
+    <li><a href="#">
+        <img src="http://ecx.images-amazon.com/images/I/51pLAgSXOzL._AC_UL320_SR242,320_.jpg">
+        <h2>Eloquen Javascript:A Modern Introduction to Programming</h2>
+        <p>Marjin Haverbeke</p>
+        <p>ISBN-10: 1593275846</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Acquire Book</a>
+    </li>
+    <li><a href="#">
+        <img src="http://ecx.images-amazon.com/images/I/51hihVmYI1L.jpg">
+        <h2>Murach's PHP and MySQL</h2>
+
+        <p>Joel Murach</p>
+        <p>ISBN-10: 1890774790</p>
+        </a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Acquire Book</a>
+    </li>
+    <li><a href="#">
+        <img src="http://media.wiley.com/product_data/coverImage300/47/EHEP0020/EHEP002047.jpg">
+        <h2>System Analysis & Design</h2>
+        <p>Alan Dennis</p>
+        <p>ISBN-10: 1118037421</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Acquire Book</a>
+    </li>
+</ul>
+<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+    <h3>Acquire Book?</h3>
+    <p>Your download will begin immediately on your mobile device when you purchase.</p>
+    <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">Buy: $10.99</a>
+    <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+</div>
+<footer>
+    <div data-role="footer"style="overflow:hidden;">
+        <h4 style="text-align:center;">Footer</h4>
+        <div data-role="navbar">
+        <ul>
+            <li><button class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-btn-icon-top ui-icon-myiconMatches">Matches</button></li>
+            <li><button class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-btn-icon-top ui-btn-active ui-icon-myiconGet">Get</button></li>
+            <li><button class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-btn-icon-top  ui-icon-myiconGive">Give</button></li>
+            <li><button class="ui-btn ui-nodisc-icon ui-shadow ui-corner-all ui-btn-icon-top  ui-icon-myiconSettings">Settings</button></li>
+
+        </ul>
+    </div>
+
+</div>
+    </footer>
+
+
+
+
+</html>

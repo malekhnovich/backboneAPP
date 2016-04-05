@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>tag.png</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Glyphish-WatchKit-38mm" sketch:type="MSArtboardGroup" transform="translate(-347.000000, -1301.000000)" fill="#000000">
+            <g id="tag.png" sketch:type="MSLayerGroup" transform="translate(347.000000, 1301.000000)">
+                <g id="Tag.png" sketch:type="MSShapeGroup">
+                    <path d="M35,14 C36.657,14 38,12.657 38,11 C38,9.343 36.657,8 35,8 C33.343,8 32,9.343 32,11 C32,12.657 33.343,14 35,14 L35,14 Z M43,0 L26,0 C25.172,0 24.422,0.336 23.879,0.879 L0.879,23.879 C0.336,24.422 0,25.172 0,26 C0,26.828 0.336,27.578 0.879,28.121 L17.879,45.121 C18.422,45.664 19.172,46 20,46 C20.828,46 21.578,45.664 22.121,45.121 L45.121,22.121 C45.664,21.578 46,20.828 46,20 L46,3 C46,1.343 44.657,0 43,0 L43,0 Z M42,19.586 L20,41.586 L4.414,26 L26.414,4 L42,4 L42,19.586 L42,19.586 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="46px" height="46px" viewBox="0 0 46 46" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+    <title>checkmark-circle.png</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Glyphish-WatchKit-38mm" sketch:type="MSArtboardGroup" transform="translate(-267.000000, -261.000000)" fill="#000000">
+            <g id="checkmark-circle.png" sketch:type="MSLayerGroup" transform="translate(267.000000, 261.000000)">
+                <g id="Checkmark-Circle.png" sketch:type="MSShapeGroup">
+                    <path d="M30.732,14.898 L19.833,25.798 L15.268,21.233 C14.291,20.257 12.708,20.256 11.732,21.233 C10.756,22.21 10.756,23.793 11.733,24.768 L18.066,31.101 C18.555,31.589 19.194,31.833 19.834,31.833 C20.474,31.833 21.114,31.589 21.603,31.101 L34.269,18.435 C35.246,17.459 35.246,15.875 34.269,14.899 C33.292,13.923 31.708,13.923 30.732,14.898 L30.732,14.898 Z M39.263,6.737 C34.919,2.394 29.144,0 23,0 C16.856,0 11.081,2.394 6.736,6.737 C2.393,11.081 0,16.856 0,23.001 C0,29.144 2.393,34.92 6.736,39.264 C11.081,43.607 16.856,46 23,46 C29.144,46 34.919,43.607 39.263,39.264 C43.607,34.92 46,29.144 46,23.001 C46,16.856 43.607,11.081 39.263,6.737 L39.263,6.737 Z M35.728,35.729 C32.328,39.128 27.808,41 23,41 C18.191,41 13.672,39.128 10.271,35.729 C6.873,32.328 5,27.809 5,23.001 C5,18.193 6.873,13.672 10.271,10.272 C13.672,6.873 18.192,5 23,5 C27.808,5 32.328,6.873 35.728,10.272 C39.128,13.671 41,18.193 41,23.001 C41,27.809 39.127,32.328 35.728,35.729 L35.728,35.729 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
