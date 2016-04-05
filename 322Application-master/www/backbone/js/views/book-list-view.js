@@ -36,7 +36,7 @@ var app = app || {};
 			this.$main = this.$('.main');
 //NEEDS TO BE CHANGED BELOW FROM $('.todo-list)
 			this.$list = $('.todo-list');
-//INSTEAD OF app.books, I changed it to app.books because its the name of our collection
+//INSTEAD OF app.todos, I changed it to app.books because its the name of our collection
 			this.listenTo(app.books, 'add', this.addOne);
 			this.listenTo(app.books, 'reset', this.addAll);
 			this.listenTo(app.books, 'change:completed', this.filterOne);
