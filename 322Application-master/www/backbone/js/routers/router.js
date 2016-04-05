@@ -5,7 +5,7 @@ var app = app || {};
     'use strict';
 
     // Todo Router
-    // ----------
+    // ---------
     var BooksRouter = Backbone.Router.extend({
         routes: {
             '*filter': 'setFilter'
