@@ -30,7 +30,9 @@ var book3 = new Book({
 
 // Create Books Collection
 var BooksCollection = Backbone.Collection.extend({
-	model: Book
+	model: Book,
+	//creating localStorage
+	localStorage:new Store("backbone-book")
 });
 
 // Create new instance of BooksCollection
