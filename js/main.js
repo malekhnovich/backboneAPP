@@ -30,9 +30,7 @@ var book3 = new Book({
 
 // Create Books Collection
 var BooksCollection = Backbone.Collection.extend({
-	model: Book,
-	//creating localStorage
-	localStorage:new Store("backbone-book")
+	model: Book
 });
 
 // Create new instance of BooksCollection
@@ -43,19 +41,38 @@ Books.add(book2);
 Books.add(book3);
 
 // Create Books View
-var BooksView = Backbone.View.extend({
-	el: 'ul',
+var ListView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#list-view').html()),
 	initialize: function() {
 		this.render();
 	},
 	render: function() {
-		this.$el.html('');
+		this.$el.html(this.template());
 		Books.each(function(model) {
 			var book = new BookView({
 				model: model
 			});
-			this.$el.append(book.render().el);
+			this.$('ul').append(book.render().el);
 		}.bind(this));
+		return this;
+	}
+});
+
+var AddView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#add-view').html()),
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		this.$el.html(this.template());
+		/*Books.each(function(model) {
+			var book = new BookView({
+				model: model
+			});
+			this.$('ul').append(book.render().el);
+		}.bind(this));*/
 		return this;
 	}
 });
@@ -70,4 +87,4 @@ var BookView = Backbone.View.extend({
 	}
 });
 // Launch app
-var app = new BooksView;
+var app = new AddView;
