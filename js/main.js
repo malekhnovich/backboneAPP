@@ -4,6 +4,11 @@ var Book = Backbone.Model.extend({
 		title: '',
 		author: '',
 		isbn: ''
+	},
+	validate:function(attributes,options){
+		if(attributes.title==="")||(attributes.author===""||attributes.isbn===""){
+			return "All fields must be filled in";
+		}
 	}
 });
 
