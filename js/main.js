@@ -53,7 +53,7 @@ var ListView = Backbone.View.extend({
 			var book = new BookView({
 				model: model
 			});
-			this.$('ul').append(book.render().el);
+			this.$('ul').prepend(book.render().el);
 		}.bind(this));
 		return this;
 	}
