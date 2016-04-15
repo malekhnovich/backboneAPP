@@ -15,14 +15,14 @@
 		<script type="text/template" id="list-view">
 			<header data-role="header" data-position="fixed">
 				<h1>Books</h1>
-				<a class="ui-btn-right" id="add">Add</a>
+				<a class="ui-btn-right" id="add-button">Add</a>
 			</header>
 			<ul data-role="listview" data-icon="false">
 			</ul>
 		</script>
 		<script type="text/template" id="add-view">
 			<header data-role="header" data-position="fixed">
-				<a class="ui-btn-left" id="back">Back</a>
+				<a class="ui-btn-left" id="back-button">Back</a>
 				<h1>Books</h1>
 			</header>
 			<form>
@@ -32,7 +32,7 @@
 				<input type="text" name="author" id="author">
 				<label for="isbn">ISBN</label>
 				<input type="text" name="isbn" id="isbn">
-				<input type="submit" value="Save">
+				<input type="submit" id="save-button" value="Save">
 			</form>
 		</script>
 		<script src="lib/jquery-2.2.2.min.js"></script>
