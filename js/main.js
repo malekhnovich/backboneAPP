@@ -56,6 +56,14 @@ var ListView = Backbone.View.extend({
 			this.$('ul').append(book.render().el);
 		}.bind(this));
 		return this;
+	},
+	events:{
+		'click #add-button': 'addButtonClick'
+	},
+	addButtonClick: function(e) {
+//have to also insert method to change view to addView
+		console.log("Add button has been clicked");
+
 	}
 });
 
@@ -74,6 +82,27 @@ var AddView = Backbone.View.extend({
 			this.$('ul').append(book.render().el);
 		}.bind(this));*/
 		return this;
+	},
+	events:{
+		'click #save-button': 'saveButtonClick'
+	},
+	//method still needs work
+	saveButtonClick: function(e) {
+		var title, author, isbn;
+		e.preventDefault();
+		title = +this.$('#title-input').val();
+		author = +this.$('#author-input').val();
+		console.log("Save button has been clicked");
+
+		if (title && author) {
+			book = new Book({title: title, author: author,isbn:isbn});
+			this.collection.add(book);
+			this.$('#title-input').val('');
+			this.$('#author-input').val('');
+			console.log(book);
+
+		}
+
 	}
 });
 
