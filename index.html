@@ -15,14 +15,14 @@
 		<script type="text/template" id="list-view">
 			<header data-role="header" data-position="fixed">
 				<h1>Books</h1>
-				<a class="ui-btn-right" id="add">Add</a>
+				<a class="ui-btn-right" id="add" href="#add">Add</a>
 			</header>
 			<ul data-role="listview" data-icon="false">
 			</ul>
 		</script>
 		<script type="text/template" id="add-view">
 			<header data-role="header" data-position="fixed">
-				<a class="ui-btn-left" id="back">Back</a>
+				<a class="ui-btn-left" id="back" href="#list">Back</a>
 				<h1>Books</h1>
 			</header>
 			<form>
@@ -36,6 +36,7 @@
 			</form>
 		</script>
 		<script src="lib/jquery-2.2.2.min.js"></script>
+		<script src="lib/jqm-config.js"></script>
 		<script src="lib/jquery.mobile-1.4.5.min.js"></script>
 		<script src="lib/underscore-min.js"></script>
 		<script src="lib/backbone-min.js"></script>
