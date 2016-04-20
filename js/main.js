@@ -44,6 +44,12 @@ Books.add(book3);
 var ListView = Backbone.View.extend({
 	el: 'body',
 	template: _.template($('#list-view').html()),
+	events: {
+		'click #add': 'addView'
+	},
+	addView: function () {
+		new AddView();
+	},
 	initialize: function() {
 		this.render();
 	},
@@ -62,17 +68,17 @@ var ListView = Backbone.View.extend({
 var AddView = Backbone.View.extend({
 	el: 'body',
 	template: _.template($('#add-view').html()),
+	events: {
+		'click #back': 'showListView'
+	},
+	showListView: function() {
+		new ListView();
+	},
 	initialize: function() {
 		this.render();
 	},
 	render: function() {
 		this.$el.html(this.template());
-		/*Books.each(function(model) {
-			var book = new BookView({
-				model: model
-			});
-			this.$('ul').append(book.render().el);
-		}.bind(this));*/
 		return this;
 	}
 });
@@ -86,5 +92,34 @@ var BookView = Backbone.View.extend({
 		return this;
 	}
 });
+
+var AppRouter = Backbone.Router.extend({
+	routes: {
+		"": 'listView',
+		"add": 'addView'
+	},
+	initialize:function () {
+		//this.changePage(new ListView());
+		// Handle back button throughout the application
+		$('.back').on('click', function(event) {
+			window.history.back();
+			return false;
+		});
+		this.firstPage = true;
+	},
+	addView: function() {
+		this.loadView(new AddView());
+	},
+	listView: function() {
+		this.loadView(new ListView());
+	},
+	loadView: function(view) {
+		this.view && this.view.remove();
+		this.view = view;
+	}
+});
+
+
 // Launch app
-var app = new AddView;
+var app = new AppRouter;
+Backbone.history.start();
