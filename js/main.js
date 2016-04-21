@@ -49,6 +49,7 @@ var ListView = Backbone.View.extend({
 	},
 	addView: function () {
 		new AddView();
+		window.location.reload();
 	},
 	initialize: function() {
 		this.render();
