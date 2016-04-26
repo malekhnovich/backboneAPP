@@ -97,30 +97,26 @@ var BookView = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 	routes: {
 		"": 'listView',
+		"listView":"listView",
 		"add": 'addView'
-	},
-	initialize:function () {
-		//this.changePage(new ListView());
-		// Handle back button throughout the application
-		$('.back').on('click', function(event) {
-			window.history.back();
-			return false;
-		});
-		this.firstPage = true;
+
+
+
 	},
 	addView: function() {
-		this.loadView(new AddView());
+
+		console.log('displaying addView');
+		new AddView();
+
 	},
 	listView: function() {
-		this.loadView(new ListView());
-	},
-	loadView: function(view) {
-		this.view && this.view.remove();
-		this.view = view;
+		new ListView();
 	}
+
 });
 
 
 // Launch app
-var app = new AppRouter;
+var app = new AppRouter();
 Backbone.history.start();
+
