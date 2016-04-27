@@ -7,10 +7,12 @@
 		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css"/>
 	</head>
 	<body>
+		<div id="container"></div>
 		<script type="text/template" id="book-template">
-			<h2><%= title %></h2>
+			<a><h2><%= title %></h2>
 			<p>by <%= author %></p>
-			<p>ISBN <%= isbn %></p>
+			<p>ISBN <%= isbn %></p></a>
+			<a class="delete">Delete</a>
 		</script>
 		<script type="text/template" id="list-view">
 			<header data-role="header" data-position="fixed">
@@ -32,7 +34,7 @@
 				<input type="text" name="author" id="author">
 				<label for="isbn">ISBN</label>
 				<input type="text" name="isbn" id="isbn">
-				<input type="submit" value="Save">
+				<input type="submit" id="submit" value="Save">
 			</form>
 		</script>
 		<div id="container"></div>
@@ -41,6 +43,7 @@
 		<script src="lib/jquery.mobile-1.4.5.min.js"></script>
 		<script src="lib/underscore-min.js"></script>
 		<script src="lib/backbone-min.js"></script>
+		<script src="lib/backbone.localStorage.js"></script>
 		<script src="js/main.js"></script>
 	</body>
 </html>
