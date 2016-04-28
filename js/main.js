@@ -29,7 +29,7 @@ var book1 = new Book({
 });
 
 // New instance of Book model - book2
-/*var book2 = new Book({
+var book2 = new Book({
 	title: 'Murach\'s PHP and MySQL Second Edition',
 	author: 'Joel Murach and Ray Harris',
 	isbn: '978-9164793427'
@@ -40,7 +40,7 @@ var book3 = new Book({
 	title: 'Successful Project Management',
 	author: 'Jack Gido and James Clements',
 	isbn: '978-2275591745'
-});*/
+});
 
 // Create Books Collection
 var BooksCollection = Backbone.Collection.extend({
@@ -53,10 +53,12 @@ var BooksCollection = Backbone.Collection.extend({
 var Books = new BooksCollection;
 Books.fetch();
 Books.add(book1);
+Books.add(book2);
+Books.add(book3);
 
 // Create Books View
 var ListView = Backbone.View.extend({
-	el: '#container',
+	el: 'body',
 	template: _.template($('#list-view').html()),
 	events: {
 		'click #add': 'addView'
@@ -73,6 +75,7 @@ var ListView = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
+		document.title = 'Books';
 		this.$el.html(this.template());
 		Books.each(function(model) {
 			var book = new BookView({
@@ -86,10 +89,10 @@ var ListView = Backbone.View.extend({
 });
 
 var AddView = Backbone.View.extend({
-	el: '#container',
+	el: 'body',
 	template: _.template($('#add-view').html()),
 	events: {
-		'click #back': 'showListView',
+		'click #cancel': 'showListView',
 		'submit form': 'saveBook'
 	},
 	showListView: function() {
@@ -120,6 +123,7 @@ var AddView = Backbone.View.extend({
 		this.render();
 	},
 	render: function() {
+		document.title = 'Add';
 		this.$el.html(this.template());
 		return this;
 	}

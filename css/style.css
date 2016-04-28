@@ -1,0 +1,89 @@
+header+ul {
+	margin-top: -1px !important;
+}
+ul {
+	height: 100% !important;
+	margin-bottom: -108px !important;
+}
+ul+p {
+	text-align: center;
+	position: fixed;
+	width: 100%;
+	opacity: 0.3;
+	bottom: 0px;
+	z-index: 0;
+}
+h1 {
+	font-weight: 600;
+}
+h2 {
+	font-size: 1em !important;
+	margin: 0 !important;
+	margin-bottom: 2px !important;
+	font-weight: 600 !important;
+}
+h2:after {
+	content: url('images/arrow.svg');
+	position: absolute;
+	right: 12px;
+}
+#back {
+	margin-left: 0px !important;
+}
+#back:before {
+	content: url('images/back.svg');
+	float: left;
+	/*margin-left: -10px;*/
+	margin-right: 4px;
+	left: 0px;
+}
+li>a {
+	padding: 12px 24px 12px 20px !important;
+}
+li>a>p {
+	font-size: 0.88em !important;
+	line-height: 1.5 !important;
+	margin: 0 !important;
+	color: #999999 !important;
+}
+li>a>p:first-line {
+	color: black;
+}
+li>a>p::last-of-type {
+	opacity: 0.3 !important;
+}
+header > .ui-btn {
+	color: #08B649 !important;
+	font-size: 1em !important;
+	padding: 0 !important;
+	border: none;
+	font-weight: 400;
+	margin: 9px 6px 0px !important;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+header > .ui-btn:hover {
+	background-color: white !important;
+}
+header > .ui-btn:active {
+	background-color: white !important;
+}
+.ui-input-text {
+	margin: -1px;
+	box-shadow: none;
+	padding-left: 8px;
+}
+.ui-input-btn {
+	color: #08B649 !important;
+	font-weight: 400;
+}
+.ui-focus {
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+}
+.ui-btn-right {
+	font-weight: 600 !important;
+}
+form {
+	margin-top: 24px;
+}

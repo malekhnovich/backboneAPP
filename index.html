@@ -5,14 +5,13 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css"/>
 		<link rel="stylesheet" href="css/themes/books.min.css"/>
 		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css"/>
+		<link rel="stylesheet" href="css/style.css"/>
 	</head>
 	<body>
-		<div id="container"></div>
 		<script type="text/template" id="book-template">
 			<a><h2><%= title %></h2>
-			<p>by <%= author %></p>
-			<p>ISBN <%= isbn %></p></a>
-			<a class="delete">Delete</a>
+			<p>by <%= author %><br/>
+			ISBN <%= isbn %></p></a>
 		</script>
 		<script type="text/template" id="list-view">
 			<header data-role="header" data-position="fixed">
@@ -24,16 +23,14 @@
 		</script>
 		<script type="text/template" id="add-view">
 			<header data-role="header" data-position="fixed">
-				<a class="ui-btn-left" id="back" href="">Back</a>
-				<h1>Books</h1>
+				<a class="ui-btn-left" id="cancel" href="">Cancel</a>
+				<h1>New Book</h1>
+				<a class="ui-btn-right" id="add" href="">Add</a>
 			</header>
 			<form>
-				<label for="title">Title</label>
-				<input type="text" name="title" id="title">
-				<label for="author">Author</label>
-				<input type="text" name="author" id="author">
-				<label for="isbn">ISBN</label>
-				<input type="text" name="isbn" id="isbn">
+				<input type="text" name="title" id="title" placeholder="Title">
+				<input type="text" name="author" id="author" placeholder="Author">
+				<input type="text" name="isbn" id="isbn" placeholder="ISBN">
 				<input type="submit" id="submit" value="Save">
 			</form>
 		</script>
