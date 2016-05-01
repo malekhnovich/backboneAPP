@@ -3,10 +3,12 @@ var Book = Backbone.Model.extend({
 	defaults: {
 		title: '',
 		author: '',
-		isbn: ''
+		isbn: '',
+		added: new Date
 	},
 	validate: function() {
 		//console.log(this.title);
+		//isbnPattern = /(97(?:8|9)([ -]?)(?=\d{1,5}\2?\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}\d)/;
 		if(!this.attributes.title) {
 			return 'Please enter a title.';
 		} else if(!this.attributes.author) {
@@ -21,127 +23,300 @@ var Book = Backbone.Model.extend({
 	}
 });
 
+var GetBook = Book.extend();
+var GiveBook = Book.extend();
+
 // New instance of Book model - book1
-var book1 = new Book({
+var book1 = new GetBook({
 	title: 'Information Retrieval in Practice',
 	author: 'Bruce Croft, Don Metzlet, and Trevor Strohe',
-	isbn: '978-3869104567'
+	isbn: '9783869104567'
 });
 
 // New instance of Book model - book2
-var book2 = new Book({
+var book2 = new GetBook({
 	title: 'Murach\'s PHP and MySQL Second Edition',
 	author: 'Joel Murach and Ray Harris',
-	isbn: '978-9164793427'
+	isbn: '9789164793427'
 });
 
 // New instance of Book model - book3
-var book3 = new Book({
+var book3 = new GetBook({
 	title: 'Successful Project Management',
 	author: 'Jack Gido and James Clements',
-	isbn: '978-2275591745'
+	isbn: '9782275591745'
+});
+
+// New instance of Book model - book1
+var book4 = new GiveBook({
+	'title': 'Cognitive Science: An Introduction to the Study of the Mind',
+	'author': 'Jay Friedenberg and David Silverman',
+	'isbn': '9781593275846'
+});
+
+// New instance of Book model - book2
+var book5 = new GiveBook({
+	'title': 'About Face: The Essentials of Interaction Design',
+	'author': 'Alan Cooper, Robert Reimann, and David Cronin',
+	'isbn': '978890774790'
+});
+
+// New instance of Book model - book3
+var book6 = new GiveBook({
+	'title': 'System Analysis & Design',
+	'author': 'Alan Dennis and Barbara Haley Wixom',
+	'isbn': '9781118037421'
 });
 
 // Create Books Collection
-var BooksCollection = Backbone.Collection.extend({
-	model: Book,
-	localStorage: new Backbone.LocalStorage('bookStore')
+var GetBooksCollection = Backbone.Collection.extend({
+	model: GetBook,
+	localStorage: new Backbone.LocalStorage('getBooks'),
+});
+var GiveBooksCollection = Backbone.Collection.extend({
+	model: GiveBook,
+	localStorage: new Backbone.LocalStorage('giveBooks'),
 });
 
 // Create new instance of BooksCollection
 // and add three model instances to it.
-var Books = new BooksCollection;
-Books.fetch();
-Books.add(book1);
-Books.add(book2);
-Books.add(book3);
+var getBooks = new GetBooksCollection;
+getBooks.fetch();
+getBooks.add(book1);
+getBooks.add(book2);
+getBooks.add(book3);
 
-// Create Books View
-var ListView = Backbone.View.extend({
+var giveBooks = new GiveBooksCollection;
+giveBooks.fetch();
+giveBooks.add(book4);
+giveBooks.add(book5);
+giveBooks.add(book6);
+
+var MatchesView = Backbone.View.extend({
 	el: 'body',
-	template: _.template($('#list-view').html()),
-	events: {
-		'click #add': 'addView'
+	template: _.template($('#matches-view').html()),
+	initialize: function() {
+		this.render();
 	},
-	addView: function () {
-		app.navigate('#add', {trigger: true});
-		window.location.reload();
-		//window.location.reload();
-	},
-	deleteBook: function() {
+	render: function() {
+		document.title = 'Matches';
+		this.$el.html(this.template());
 
+		return this;
+	}
+});
+var GetListView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#get-list-view').html()),
+	events: {
 	},
 	initialize: function() {
 		this.render();
 	},
 	render: function() {
-		document.title = 'Books';
+		document.title = 'Get Books';
 		this.$el.html(this.template());
-		Books.each(function(model) {
+		getBooks.each(function(model) {
 			var book = new BookView({
 				model: model
 			});
 			this.$('ul').append(book.render().el);
 		}.bind(this));
-		this.$el.append('<p>'+Books.length+' books</p>');
+
 		return this;
 	}
 });
-
-var AddView = Backbone.View.extend({
+var GiveListView = Backbone.View.extend({
 	el: 'body',
-	template: _.template($('#add-view').html()),
+	template: _.template($('#give-list-view').html()),
 	events: {
-		'click #cancel': 'showListView',
+	},
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		document.title = 'Give Books';
+		this.$el.html(this.template());
+		giveBooks.each(function(model) {
+			var book = new BookView({
+				model: model
+			});
+			this.$('ul').append(book.render().el);
+		}.bind(this));
+
+		return this;
+	}
+});
+var GetAddView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#get-add-view').html()),
+	events: {
+		'click #save': 'triggerSubmit',
 		'submit form': 'saveBook'
 	},
-	showListView: function() {
-		app.navigate('', {trigger: true});
-		window.location.reload();
+	triggerSubmit: function() {
+		$('form').trigger('submit');
 	},
 	saveBook: function(e) {
 		e.preventDefault();
-		//console.log($('#title').val());
-		var book = new Book({
+		var book = new GetBook({
 			title: $('#title').val(),
 			author: $('#author').val(),
 			isbn: $('#isbn').val()
 		});
-		//console.log(book.attributes.title);
 		error = book.validate();
-		//console.log(book.title);
 		if(error) {
-			this.$el.append('<p>' + error + '</p>');
+			this.$('form + p').html(error);
 		} else {
-			Books.add(book);
+			getBooks.add(book);
 			book.save();
-			app.navigate('', {trigger: true});
-			window.location.reload();
+			app.navigate('get', {trigger: true});
 		}
 	},
 	initialize: function() {
 		this.render();
 	},
 	render: function() {
-		document.title = 'Add';
+		document.title = 'Add Book';
 		this.$el.html(this.template());
+
 		return this;
 	}
 });
-
-// Create Book View
-var BookView = Backbone.View.extend({
-	tagName: 'li',
-	template: _.template($('#book-template').html()),
+var GiveAddView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#give-add-view').html()),
 	events: {
-		'click .delete': 'deleteBook',
+		'click #save': 'triggerSubmit',
+		'submit form': 'saveBook'
+	},
+	triggerSubmit: function() {
+		$('form').trigger('submit');
+	},
+	saveBook: function(e) {
+		e.preventDefault();
+		var book = new GiveBook({
+			title: $('#title').val(),
+			author: $('#author').val(),
+			isbn: $('#isbn').val()
+		});
+		error = book.validate();
+		if(error) {
+			this.$('form + p').html(error);
+		} else {
+			giveBooks.add(book);
+			book.save();
+			app.navigate('give', {trigger: true});
+		}
+	},
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		document.title = 'Add Book';
+		this.$el.html(this.template());
+
+		return this;
+	}
+});
+var GetEditView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#get-edit-view').html()),
+	events: {
+		'click #save': 'triggerSubmit',
+		'submit form': 'saveBook',
+		'click #delete': 'deleteBook'
 	},
 	deleteBook: function() {
-		console.log('deleting');
 		this.model.destroy();
-		app.navigate('', {trigger: true});
-		window.location.reload();
+		app.navigate('get', {trigger: true});
 	},
+	triggerSubmit: function() {
+		$('form').trigger('submit');
+	},
+	saveBook: function(e) {
+		e.preventDefault();
+		var book = new GetBook({
+			title: $('#title').val(),
+			author: $('#author').val(),
+			isbn: $('#isbn').val()
+		});
+		error = book.validate();
+		if(error) {
+			this.$('form + p').html(error);
+		} else {
+			getBooks.add(book);
+			book.save();
+			app.navigate('get', {trigger: true});
+		}
+	},
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		document.title = 'Edit Book';
+		this.$el.html(this.template());
+
+		return this;
+	}
+});
+var GiveEditView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#give-edit-view').html()),
+	events: {
+		'click #save': 'triggerSubmit',
+		'submit form': 'saveBook',
+		'click #delete': 'deleteBook'
+	},
+	deleteBook: function() {
+		this.model.destroy();
+		app.navigate('give', {trigger: true});
+	},
+	triggerSubmit: function() {
+		$('form').trigger('submit');
+	},
+	saveBook: function(e) {
+		e.preventDefault();
+		var book = new GiveBook({
+			title: $('#title').val(),
+			author: $('#author').val(),
+			isbn: $('#isbn').val()
+		});
+		error = book.validate();
+		if(error) {
+			this.$('form + p').html(error);
+		} else {
+			giveBooks.add(book);
+			book.save();
+			app.navigate('give', {trigger: true});
+		}
+	},
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		document.title = 'Edit Book';
+		this.$el.html(this.template());
+
+		return this;
+	}
+});
+var SettingsView = Backbone.View.extend({
+	el: 'body',
+	template: _.template($('#settings-view').html()),
+	initialize: function() {
+		this.render();
+	},
+	render: function() {
+		document.title = 'Settings';
+		this.$el.html(this.template());
+
+		return this;
+	}
+});
+var BookView = Backbone.View.extend({
+	tagName: 'a',
+	template: _.template($('#book-view').html()),
 	render: function() {
 		this.$el.html(this.template(this.model.attributes));
 		return this;
@@ -150,15 +325,38 @@ var BookView = Backbone.View.extend({
 
 var AppRouter = Backbone.Router.extend({
 	routes: {
-		"": 'listView',
-		"listView":"listView",
-		"add": 'addView'
+		'': 'matchesView',
+		'get': 'getListView',
+		'give': 'giveListView',
+		'get/add': 'getAddView',
+		'give/add': 'giveAddView',
+		'get/edit/:id': 'getEditView',
+		'give/edit/:id': 'giveEditView',
+		'settings': 'settingsView'
 	},
-	addView: function() {
-		new AddView();
+	matchesView: function() {
+		new MatchesView();
 	},
-	listView: function() {
-		new ListView();
+	getListView: function() {
+		new GetListView();
+	},
+	giveListView: function() {
+		new GiveListView();
+	},
+	getAddView: function() {
+		new GetAddView();
+	},
+	giveAddView: function() {
+		new GiveAddView();
+	},
+	getEditView: function() {
+		new GetEditView();
+	},
+	giveEditView: function() {
+		new GiveEditView();
+	},
+	settingsView: function() {
+		new SettingsView();
 	}
 
 });
@@ -167,4 +365,3 @@ var AppRouter = Backbone.Router.extend({
 // Launch app
 var app = new AppRouter();
 Backbone.history.start();
-
