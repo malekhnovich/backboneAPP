@@ -7,8 +7,6 @@ var Book = Backbone.Model.extend({
 		added: new Date
 	},
 	validate: function() {
-		//console.log(this.title);
-		//isbnPattern = /(97(?:8|9)([ -]?)(?=\d{1,5}\2?\d{1,7}\2?\d{1,6}\2?\d)(?:\d\2*){9}\d)/;
 		if(!this.attributes.title) {
 			return 'Please enter a title.';
 		} else if(!this.attributes.author) {

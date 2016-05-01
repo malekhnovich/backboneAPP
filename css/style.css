@@ -7,12 +7,15 @@
 html, body {
 	width: 100%;
 	max-height: 100%;
-	box-sizing:border-box;
+	box-sizing: border-box;
 }
 body {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
 	margin-top: 43px;
 	padding-bottom: 48px;
 	font-size: 1.0625em;
+	-webkit-text-size-adjust: none;
 	background-color: #EEEEF2;
 	font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -41,9 +44,43 @@ ul > a {
 	width: 100%;
 	padding-left: 17px
 }
+
+
+
+
+
+
 ul > a:active {
 	background-color: #eeeeee;
+	z-index: 99;
 }
+ul > a:active {
+	padding-bottom: 0;
+}
+ul > a:active > li {
+	border-bottom: none;
+	padding-bottom: 13px;
+}
+ul > a:active:last-of-type > li{
+	padding-bottom: 12px;
+}
+ul > a:active:not(:first-of-type) > li {
+	margin-top: -1px;
+	padding-top: 13px;
+}
+.toggle > a:active:not(:first-of-type) > li {
+	padding-top: 13px;
+	padding-bottom: 12px;
+}
+.toggle a:active:last-of-type p:last-of-type {
+	padding-top: 13px;
+}
+ul > a:active:only-of-type > li {
+	padding-bottom: 12px;
+}
+
+
+
 ul > a:first-of-type {
 	border-top: 1px solid #dddddd;
 }
@@ -56,9 +93,6 @@ ul li {
 }
 header + ul > a {
 	padding-left: 20px;
-}
-header+ul li {
-	padding: 13px 0;
 }
 ul > a:last-of-type > li {
 	border: none;
@@ -92,6 +126,7 @@ h2:after {
 	position: absolute;
 	z-index: 0;
 	right: 12px;
+	margin-top: 1px;
 }
 a {
 	text-decoration: none;
@@ -140,6 +175,8 @@ form > input {
 	border-bottom: 1px solid #dddddd;
 	outline: none;
 	border-radius: 0;
+	-webkit-touch-callout: default;
+	-webkit-user-select: auto;
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 	font-family: -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -152,11 +189,12 @@ input::-webkit-inner-spin-button {
 	margin: 0;
 }
 form + p {
-	text-align: center;
-	width: 100%;
+	/*text-align: center;
+	width: 100%;*/
 	color: #D0021B;
 	font-style: italic;
 	margin-top: 42px;
+	margin-left: 17px;
 }
 input[type=submit] {
 	visibility: hidden;
@@ -188,15 +226,29 @@ footer > a {
 .warn {
 	color: #D0021B;
 }
-/*.toggle li > p:first-of-type {
-	font-weight: 500;
-}*/
-.toggle li > p:last-of-type {
+.toggle {
+	background-color: white;
+}
+.toggle li {
+	position: relative;
+
+}
+.toggle p {
+	padding-right: 0;
+}
+.toggle p:last-of-type {
 	position: absolute;
-	right: 17px;
-	padding-right: 0px;
+	right: 0;
+	padding: 12px 0;
 	color: #999999;
-	margin: 0;
+	top: 0;
+	padding-right: 32px;
+}
+.toggle p:last-of-type:after {
+	content: url('../img/arrow.svg');
+	position: absolute;
+	margin-top: 1px;
+	right: 12px;
 }
 footer p {
 	display: block;
