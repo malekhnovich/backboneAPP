@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<link rel="stylesheet" href="css/style.css"/>
+	</head>
+	<body ontouchstart="">
+		<script type="text/template" id="matches-view">
+			<header>
+				<h1>Matches</h1>
+			</header>
+			<ul>
+				<a><li>
+					<h2>Information Retrieval in Practice</h2>
+					<p>Cognitive Science: An Introduction to the Study of the Mind<br/>
+					$3.57 gain</p>
+				</li></a>
+				<a><li>
+					<h2>Murach's PHP and MySQL Second Edition</h2>
+					<p>Cognitive Science: An Introduction to the Study of the Mind<br/>
+					$17.03 gain</p>
+				</li></a>
+				<a><li>
+					<h2>Successful Project Management</h2>
+					<p>About Face: The Essentials of Interaction Design<br/>
+					$9.42 loss</p>
+				</li></a>
+				<a><li>
+					<h2>Successful Project Management</h2>
+					<p>Systems Analysis & Design<br/>
+					$12.16 gain</p>
+				</li></a>
+			</ul>
+			<footer>
+				<a href="#" class="active">
+					<img src="img/matches-active.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get">
+					<img src="img/get.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give">
+					<img src="img/give.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="get-list-view">
+			<header>
+				<h1>Get Books</h1>
+				<a class="right" href="#get/add">Add</a>
+			</header>
+			<ul>
+			</ul>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get" class="active">
+					<img src="img/get-active.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give">
+					<img src="img/give.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="give-list-view">
+			<header>
+				<h1>Give Books</h1>
+				<a class="right" href="#give/add">Add</a>
+			</header>
+			<ul>
+			</ul>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get">
+					<img src="img/get.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give" class="active">
+					<img src="img/give-active.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="get-add-view">
+			<header>
+				<a class="left" href="#get">Cancel</a>
+				<h1>Add Book</h1>
+				<a class="right bold" id="save">Save</a>
+			</header>
+			<form>
+				<input type="text" name="title" id="title" placeholder="Title">
+				<input type="text" name="author" id="author" placeholder="Author">
+				<input type="text" name="isbn" id="isbn" placeholder="ISBN" inputmode="numeric" pattern="[0-9]*">
+				<!--<input type="submit">!-->
+			</form>
+			<p></p>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get" class="active">
+					<img src="img/get-active.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give">
+					<img src="img/give.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="give-add-view">
+			<header>
+				<a class="left" href="#give">Cancel</a>
+				<h1>Add Book</h1>
+				<a class="right bold" id="save">Save</a>
+			</header>
+			<form>
+				<input type="text" name="title" id="title" placeholder="Title">
+				<input type="text" name="author" id="author" placeholder="Author">
+				<input type="text" name="isbn" id="isbn" placeholder="ISBN" inputmode="numeric" pattern="[0-9]*">
+				<!--<input type="submit">!-->
+			</form>
+			<p></p>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get">
+					<img src="img/get.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give" class="active">
+					<img src="img/give-active.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="get-edit-view">
+			<header>
+				<a class="left back" href="#get">Back</a>
+				<h1>Edit Book</h1>
+				<a class="right bold" id="save">Save</a>
+			</header>
+			<form>
+				<input type="text" name="title" id="title" placeholder="Title" value="<%= title %>">
+				<input type="text" name="author" id="author" placeholder="Author" value="<%= author %>">
+				<input type="text" name="isbn" id="isbn" placeholder="ISBN" inputmode="numeric" pattern="[0-9]*" value="<%= isbn %>">
+				<!--<input type="submit">!-->
+			</form>
+			<p></p>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get" class="active">
+					<img src="img/get-active.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give">
+					<img src="img/give.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="give-edit-view">
+			<header>
+				<a class="left back" href="#give">Back</a>
+				<h1>Edit Book</h1>
+				<a class="right bold" id="save">Save</a>
+			</header>
+			<form>
+				<input type="text" name="title" id="title" placeholder="Title" value="<%= title %>">
+				<input type="text" name="author" id="author" placeholder="Author" value="<%= author %>">
+				<input type="text" name="isbn" id="isbn" placeholder="ISBN" inputmode="numeric" pattern="[0-9]*" value="<%= isbn %>">
+				<!--<input type="submit">!-->
+			</form>
+			<p></p>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get">
+					<img src="img/get.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give" class="active">
+					<img src="img/give-active.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings">
+					<img src="img/settings.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="settings-view">
+			<header>
+				<h1>Settings</h1>
+			</header>
+			<h3>Notifications</h3>
+			<ul class="toggle">
+				<a><li><p>Method</p><p>push notification</p></li></a>
+				<a><li><p>Frequency</p><p>upon match</p></li></a>
+			</ul>
+			<h3>Matches</h3>
+			<ul class="toggle">
+				<a><li><p>Maximum Loss</p><p>$10.00</p></li></a>
+				<a><li><p>Minimum Condition</p><p>good</p></li></a>
+			</ul>
+			<h3>Account</h3>
+			<ul>
+				<a class="active"><li><p>Invite Friends</p></li></a>
+				<a class="active"><li><p>Sign Out</p></li></a>
+				<a class="warn"><li><p>Delete Account</p></li></a>
+			</ul>
+			<footer>
+				<a href="#">
+					<img src="img/matches.svg">
+					<p>Matches</p>
+				</a>
+				<a href="#get">
+					<img src="img/get.svg">
+					<p>Get</p>
+				</a>
+				<a href="#give">
+					<img src="img/give.svg">
+					<p>Give</p>
+				</a>
+				<a href="#settings" class="active">
+					<img src="img/settings-active.svg">
+					<p>Settings</p>
+				</a>
+			</footer>
+		</script>
+		<script type="text/template" id="book-view">
+			<li><h2><%= title %></h2>
+			<p>by <%= author %><br/>ISBN <%= isbn %></p></li>
+		</script>
+		<script src="lib/jquery-2.2.2.min.js"></script>
+		<script src="lib/underscore-min.js"></script>
+		<script src="lib/backbone-min.js"></script>
+		<script src="lib/backbone.localStorage.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
