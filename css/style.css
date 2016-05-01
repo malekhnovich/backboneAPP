@@ -186,30 +186,11 @@ form > input {
 form > input:last-of-type {
 	border: none;
 }
-/*
-form > input:nth-last-child(2) {
-	border: none;
-}/*
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}*/
 form + p {
-	/*text-align: center;
-	width: 100%;*/
 	color: #F22323;
 	font-style: italic;
 	margin-top: 42px;
 	margin-left: 17px;
-}
-input[type=submit] {
-	visibility: hidden;
-	height: 0;
-	/*pointer-events: none;*/
-	cursor: default;
-	position: fixed;
-	top: 0;
 }
 footer {
 	width: 100%;
